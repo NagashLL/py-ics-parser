@@ -13,8 +13,11 @@ from icalendar import Calendar, Event
 # Create a new iCalendar object
 cal = Calendar()
 
+# Construct the full path to the CSV file
+csv_file_path = os.path.join(os.path.dirname(__file__), 'events.csv')
+
 # Open the CSV file
-with open('event-list.csv', newline='') as csvfile:
+with open(csv_file_path, newline='') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
 
     # Skip the header row

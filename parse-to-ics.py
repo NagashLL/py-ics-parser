@@ -13,6 +13,10 @@ from icalendar import Calendar, Event
 # Create a new iCalendar object
 cal = Calendar()
 
+# Some properties are required to be compliant
+cal.add('prodid', '-//My calendar product//example.com//')
+cal.add('version', '2.0')
+
 # Construct the full path to the CSV file
 csv_file_path = os.path.join(os.path.dirname(__file__), 'events.csv')
 
@@ -27,6 +31,9 @@ with open(csv_file_path, newline='') as csvfile:
     for row in reader:
         # Create a new event
         event = Event()
+
+
+
 
         # Set the event properties from the CSV data
         event.add('summary', row[0])
